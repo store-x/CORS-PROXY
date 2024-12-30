@@ -13,6 +13,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/status")
+async def status():
+    return {"status": "running"}
+
 @app.post("/api/proxy")
 async def proxy_request(request: Request):
     try:
